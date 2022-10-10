@@ -111,6 +111,12 @@ if ( ! class_exists( 'PRODUCT_DISABLER_LOADER' ) ) {
 		public function admin_assets() {
 			wp_enqueue_style( 'pd-admin-style', PRODUCT_DISABLER_ASSETS_DIR_URL . '/css/admin/admin.css' );
 			wp_enqueue_script( 'pd-admin-script', PRODUCT_DISABLER_ASSETS_DIR_URL . '/js/admin/admin.js', array( 'jquery' ), rand() );
+			wp_enqueue_script('pd-bootstrap-script', 
+				'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', 
+				array ('jquery'), 
+				false, false);
+
+			wp_enqueue_style( 'pd-bootstrap-style', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' );
 			wp_localize_script(
 				'pd-admin-script',
 				'pd_ajax_object',
