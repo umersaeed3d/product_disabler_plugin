@@ -36,3 +36,4 @@ if ( ! defined( 'PRODUCT_DISABLER_ASSETS_DIR_URL' ) ) {
 
 require_once PRODUCT_DISABLER_PLUGIN_DIR . '/helpers.php';
 require_once PRODUCT_DISABLER_PLUGIN_DIR . '/includes/class-pd-loader.php';
+require_once PRODUCT_DISABLER_PLUGIN_DIR . '/includes/class-pd-front-loader.php';
