@@ -42,8 +42,8 @@ if ( ! class_exists( 'PRODUCT_DISABLER_LOADER' ) ) {
 
 			$this->metaKey = "pd_action_key";
 			$this->metaStatus = "pd_action_status";
-				
 			$this->init();
+				
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_assets' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'front_assets' ) );
 			
@@ -55,6 +55,17 @@ if ( ! class_exists( 'PRODUCT_DISABLER_LOADER' ) ) {
 			add_filter( 'manage_edit-product_columns', array($this,'add_column_to_product_grid'), 10, 1 );
 			add_action( 'manage_product_posts_custom_column', array($this,'add_column_value_to_product_grid'), 10, 2 );
 			
+		}
+		
+		
+		function replace_add_to_cart( $add_to_cart_link, $product ) {
+
+			$status = get_post_meta($product->id, 'pd_action_status');
+			if(false == $status )
+			{
+			$add_to_cart_link = do_shortcode('<button  class="btn btn-primary disabled">Sorry, this product is disabled</button>');
+			}
+			return $add_to_cart_link;
 		}
 
 		public function add_column_to_product_grid( $aColumns ) {
