@@ -97,9 +97,9 @@ if ( ! class_exists( 'PRODUCT_DISABLER_LOADER' ) ) {
 				$product  = new WC_Product( $postId );
 				$status = $product->get_meta( $this->metaStatus );
 				if(1 == $status){
-					$button = '<button class="btn btn-danger col-sm-2" onclick="changeProdStatus(0,'.$postId.')" type="button">Disable Product</button>';
+					$button = '<button class="btn btn-danger" onclick="changeProdStatus(0,'.$postId.')" type="button">Disable Product</button>';
 				}else{
-					$button = '<button class="btn btn-success col-sm-2" onclick="changeProdStatus(1,'.$postId.')" type="button">Active Product</button>';
+					$button = '<button class="btn btn-success" onclick="changeProdStatus(1,'.$postId.')" type="button">Active Product</button>';
 				}
 				$this->check_meta_exists($this->metaKey, $postId, $button);
 				$meta_btn = $product->get_meta( $this->metaKey );
